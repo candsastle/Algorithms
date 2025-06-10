@@ -17,11 +17,7 @@
           libxkbcommon
           wayland
         ];
-        buildInputs = with pkgs; [
-          rustup
-        ];
-
-        LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (buildInputs ++ nativeBuildInputs);
+        LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath nativeBuildInputs;
       };
       # No idea if this Mac config actually works
       ${macSystem}.default = pkgs-mac.mkShell rec {
@@ -31,11 +27,8 @@
           libxkbcommon
           wayland
         ];
-        buildInputs = with pkgs-mac; [
-          rustup
-        ];
 
-        LD_LIBRARY_PATH = pkgs-mac.lib.makeLibraryPath (buildInputs ++ nativeBuildInputs);
+        LD_LIBRARY_PATH = pkgs-mac.lib.makeLibraryPath nativeBuildInputs;
       };
     };
   };
