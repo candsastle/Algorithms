@@ -11,8 +11,8 @@
     overrides = builtins.fromTOML (builtins.readFile ./rust-toolchain.toml);
   in {
     devShells = let
-      libPath = pkgs.lib.makeLibraryPath commonPackages;
-      commonPackages = with pkgs; [
+      libPath = pkgs.lib.makeLibraryPath libraryPackages;
+      libraryPackages = with pkgs; [
         pkg-config
         openssl
         libxkbcommon
